@@ -1,0 +1,14 @@
+// set up backend
+// 1 and 2 is for virtual environment
+1. python -m venv venv
+2. venv\Scripts\activate
+
+3. pip install Flask
+4. pip install flask_sqlalchemy
+5. pip install flask_cors
+6. pip install pymysql
+
+// run 7 for backend server
+7. python app.py
+
+

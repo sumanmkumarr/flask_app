@@ -1,3 +1,4 @@
+ 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS  # Import CORS
@@ -17,13 +18,13 @@ CORS(app)
 # Import and register your routes
 from routes.children import children_blueprint
 from routes.caregivers import caregivers_blueprint  # Add this import
-from routes.attendance import attendance_blueprint  # Add this import
+from routes.attendances import attendances_blueprint  # Add this import
 from routes.finances import finances_blueprint  # Add this import
 from routes.enrollments import enrollments_blueprint  # Add this import
 
 app.register_blueprint(children_blueprint)
 app.register_blueprint(caregivers_blueprint)  # Register caregivers blueprint
-app.register_blueprint(attendance_blueprint)  # Register attendance blueprint
+app.register_blueprint(attendances_blueprint)  # Register attendance blueprint
 app.register_blueprint(finances_blueprint)  # Register finances blueprint
 app.register_blueprint(enrollments_blueprint)  # Register enrollments blueprint
 

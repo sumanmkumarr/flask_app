@@ -19,3 +19,19 @@ class Attendance(db.Model):
 
     def __repr__(self):
         return f'<Attendance {self.id}>'
+
+
+
+# from __init__ import db
+
+# class Attendance(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     date = db.Column(db.Date, nullable=False)
+#     status = db.Column(db.String(50), nullable=False)
+#     child_id = db.Column(db.Integer, db.ForeignKey('child.id'), nullable=False)  # Foreign key to link with Child
+
+#     # Define a relationship to the Child model (optional, for easy access)
+#     child = db.relationship('Child', backref=db.backref('attendances', lazy=True))
+
+#     def __repr__(self):
+#         return f'<Attendance {self.id}>'

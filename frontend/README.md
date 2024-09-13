@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+Full-Stack Flask App
+Project Overview
+This project is a full-stack application built using a Flask backend and a React frontend. The app allows users to manage and modify data such as attendance, caregiver details, children details, and financial information, with visual charts for overview and easy navigation.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+Project Overview
+Frontend
+Frontend Setup
+Frontend Dependencies
+Running the Frontend
+Backend
+Backend Setup
+Backend Dependencies
+Database Setup
+Running the Backend
+Deployment
+Usage
+License
+Frontend
+The frontend of this project is built using React and Chart.js for data visualization. It interacts with the Flask backend to display and modify data.
 
-## Available Scripts
+Frontend Setup
+Clone the repository:
 
-In the project directory, you can run:
+bash
+Copy code
+git clone https://github.com/yourusername/your-repo-name.git
+Navigate to the frontend directory:
 
-### `npm start`
+bash
+Copy code
+cd frontend
+Frontend Dependencies
+Install the necessary dependencies for the React frontend. Run the following command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copy code
+npm install
+The key dependencies include:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+axios: For making HTTP requests to the Flask backend.
+react-chartjs-2: For rendering charts in the app.
+chart.js: A charting library for data visualization.
+react-router-dom: For navigation between different pages.
+Running the Frontend
+To run the frontend in development mode:
 
-### `npm test`
+bash
+Copy code
+npm start
+This command will start the development server at http://localhost:3000.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Backend
+The backend is powered by Flask, with Flask SQLAlchemy as the ORM, and connects to a PostgreSQL database.
 
-### `npm run build`
+Backend Setup
+Navigate to the backend directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+bash
+Copy code
+cd ../backend
+Create and activate a virtual environment:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copy code
+# On Windows
+python -m venv venv
+venv\Scripts\activate
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# On macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+Install the required dependencies:
 
-### `npm run eject`
+bash
+Copy code
+pip install -r requirements.txt
+Backend Dependencies
+Here are some key dependencies for the Flask backend:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Flask: The main web framework.
+Flask-SQLAlchemy: ORM for handling database operations.
+Flask-Migrate: For database migrations.
+Flask-CORS: To handle Cross-Origin Resource Sharing (CORS) for frontend-backend communication.
+psycopg2-binary: PostgreSQL adapter for Python.
+Database Setup
+Set up PostgreSQL:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Make sure you have PostgreSQL installed. Create a new database and update the configuration in your config.py file in the backend:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+python
+Copy code
+SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost:5432/yourdbname'
+Run migrations to set up the database schema:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+bash
+Copy code
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+Running the Backend
+To run the backend server locally, use the following command:
 
-## Learn More
+bash
+Copy code
+flask run
+The backend will be available at http://127.0.0.1:5000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Deployment
+If you want to deploy the app, here are some general guidelines:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Choose a platform: For deployment, you can use platforms such as Heroku, AWS, or DigitalOcean.
 
-### Code Splitting
+Frontend Deployment: Build the frontend using:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+bash
+Copy code
+npm run build
+Deploy the build files on a static hosting service like Netlify or GitHub Pages.
 
-### Analyzing the Bundle Size
+Backend Deployment: Host the Flask app on Heroku or similar, ensuring that PostgreSQL is set up for the production environment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For Heroku:
 
-### Making a Progressive Web App
+Install the Heroku CLI and log in.
+Push your backend app to Heroku.
+Use Heroku’s PostgreSQL add-on for the database.
+bash
+Copy code
+heroku create
+git push heroku main
+heroku addons:create heroku-postgresql:hobby-dev
+Usage
+Navigating the App:
+Once both the frontend and backend servers are running, open the app in your browser at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+bash
+Copy code
+http://localhost:3000
+You can perform the following actions:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+View and modify data: Use the buttons on the Overview page to navigate to different sections (attendance, finance, enrollment, etc.) to modify the data.
+Visual overview: The app displays charts with data visualization for different categories.

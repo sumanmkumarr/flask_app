@@ -56,13 +56,75 @@
 
 
 
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Attendance from './components/Attendance';
+// import Caregivers from './components/Caregivers';
+// import Children from './components/Children';
+// import Enrollment from './components/Enrollment';
+// import Finance from './components/Finance';
+
+// function App() {
+//   return (
+//     <Router>
+//       <div>
+//         <h1>Childcare Management System</h1>
+//         <Routes>
+//           <Route path="/attendance" element={<Attendance />} />
+//           <Route path="/caregivers" element={<Caregivers />} />
+//           <Route path="/children" element={<Children />} />
+//           <Route path="/enrollment" element={<Enrollment />} />
+//           <Route path="/finance" element={<Finance />} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+
+
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Attendance from './components/Attendance';
+// import Caregivers from './components/Caregivers';
+// import Children from './components/Children';
+// import Enrollment from './components/Enrollment';
+// import Finance from './components/Finance';
+// import Overview from './components/Overview'; // Import Overview component
+
+// function App() {
+//   return (
+//     <Router>
+//       <div>
+//         <h1>Childcare Management System</h1>
+//         <Routes>
+//           <Route path="/" element={<Overview />} /> {/* Set Overview as the default route */}
+//           <Route path="/attendance" element={<Attendance />} />
+//           <Route path="/caregivers" element={<Caregivers />} />
+//           <Route path="/children" element={<Children />} />
+//           <Route path="/enrollment" element={<Enrollment />} />
+//           <Route path="/finance" element={<Finance />} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Attendance from './components/Attendance';
-import Caregiver from './components/Caregivers';
+import Caregivers from './components/Caregivers';
 import Children from './components/Children';
 import Enrollment from './components/Enrollment';
 import Finance from './components/Finance';
+import Overview from './components/Overview'; // Add Overview import
 
 function App() {
   return (
@@ -70,8 +132,9 @@ function App() {
       <div>
         <h1>Childcare Management System</h1>
         <Routes>
+          <Route path="/" element={<Overview />} /> {/* Default route */}
           <Route path="/attendance" element={<Attendance />} />
-          <Route path="/caregiver" element={<Caregiver />} />
+          <Route path="/caregivers" element={<Caregivers />} />
           <Route path="/children" element={<Children />} />
           <Route path="/enrollment" element={<Enrollment />} />
           <Route path="/finance" element={<Finance />} />
